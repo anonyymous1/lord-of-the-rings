@@ -3,6 +3,28 @@ import Movie from './Movie'
 import './App.css';
 
 function App() {
+  const movieData = [
+    {
+      title: "The Fellowship of the Ring",
+      hours:"2",
+      minutes:"58"
+    },
+    {
+      title: "The Two Towers",
+      hours:"2",
+      minutes:"59"
+    },
+    {
+      title: "The Return of the King",
+      hours:"3",
+      minutes:"21"
+    },
+  ]
+
+  const movieComponents = movieData.map((d, index)=>{
+    return <Movie { ...d } key={'movie-'+ index}/>
+  })
+
   return (
     <div className="App">
       <header className="App-header">
@@ -10,9 +32,7 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
-        <Movie title="The Fellowship of the Ring" hours="2" min="58"/>
-        <Movie title="The Two Towers" hours="2" min="59"/>
-        <Movie title="The Return of the King" hours="3" min="21"/>
+                { movieComponents }
       </header>
     </div>
   );
